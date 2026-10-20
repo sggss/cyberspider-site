@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CyberSpide — компьютерный клуб в Омске</title>
+<meta name="description" content="CyberSpide — компьютерный клуб в Омске на Кемеровской, 12А: общий зал, VIP, DUO и PlayStation 5. RTX 4060 Ti / 4070 Ti, мониторы 165–300 Гц. Тарифы от 140 ₽/час.">
+<meta name="theme-color" content="#05070a">
+<meta property="og:title" content="CyberSpide — компьютерный клуб в Омске">
+<meta property="og:description" content="Игровые ПК с RTX 4070 Ti, VIP-зал, DUO и PlayStation 5. Омск, Кемеровская, 12А.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070a'/%3E%3Ccircle cx='16' cy='17' r='5' fill='%239dff3c'/%3E%3Cpath d='M16 3v9M6 9l6 6M26 9l-6 6M4 22l8-3M28 22l-8-3' stroke='%239dff3c' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/russoone-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero.webp" as="image" type="image/webp">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">К содержимому</a>
+
+<header class="top" id="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="CyberSpide — на главную">
+      <svg class="brand__logo" viewBox="0 0 40 40" aria-hidden="true"><use href="#spider"/></svg>
+      <span>CYBER<b>SPIDE</b></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <a href="#zones">Залы</a>
+      <a href="#prices">Тарифы</a>
+      <a href="#calc">Калькулятор</a>
+      <a href="#gallery">Фото</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn--sm top__call" href="tel:+79136283328">+7 913 628-33-28</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <img class="hero__bg" src="img/hero.webp" alt="Игровой зал CyberSpide с неоновой подсветкой" width="1600" height="1067" fetchpriority="high">
+  <div class="hero__veil"></div>
+  <svg class="hero__web" viewBox="0 0 400 400" aria-hidden="true"><use href="#web"/></svg>
+  <div class="wrap hero__in">
+    <p class="chip"><span class="chip__star">★</span> 4,9 на Яндекс Картах · 34 отзыва</p>
+    <h1>Попади в <em>паутину</em> большой игры</h1>
+    <p class="lead">Компьютерный клуб в Омске: игровые ПК с RTX&nbsp;4070&nbsp;Ti, VIP-зал, DUO для двоих и PlayStation&nbsp;5. Пришёл, оплатил час — играешь.</p>
+    <div class="hero__cta">
+      <a class="btn" href="tel:+79136283328">Позвонить</a>
+      <a class="btn btn--ghost" href="https://t.me/+79136283328" target="_blank" rel="noopener">Написать в Telegram</a>
+    </div>
+    <ul class="facts">
+      <li><b>от 140 ₽</b><span>за час в общем зале</span></li>
+      <li><b>165–300 Гц</b><span>игровые мониторы</span></li>
+      <li><b>4 зала</b><span>ПК, VIP, DUO, PS5</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="zones">
+  <div class="wrap">
+    <header class="sec__head"><p class="eyebrow">Залы</p><h2>Выбери свою зону</h2></header>
+    <div class="zones" id="zonesGrid"></div>
+    <p class="note">Если нет своего аккаунта Steam, администратор выдаст аккаунт для игры (из отзыва гостя).</p>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="prices">
+  <div class="wrap">
+    <header class="sec__head"><p class="eyebrow">Тарифы</p><h2>Цены без сюрпризов</h2></header>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Зал" id="zoneTabs"></div>
+      <div class="seg seg--day" role="group" aria-label="День недели" id="dayTabs">
+        <button type="button" data-day="weekday" aria-pressed="true">Будни</button>
+        <button type="button" data-day="weekend" aria-pressed="false">Выходные</button>
+      </div>
+    </div>
+    <p class="spec" id="priceSpec"></p>
+    <div class="tariffs" id="tariffs" aria-live="polite"></div>
+    <p class="note" id="priceNote"></p>
+    <noscript><p class="note">Для просмотра тарифов включите JavaScript или позвоните: +7 913 628-33-28.</p></noscript>
+  </div>
+</section>
+
+<section class="sec" id="calc">
+  <div class="wrap">
+    <header class="sec__head"><p class="eyebrow">Калькулятор</p><h2>Сколько стоит твой вечер?</h2></header>
+    <noscript><p class="note">Для калькулятора включите JavaScript.</p></noscript>
+    <div class="calc">
+      <div class="calc__form">
+        <label>Зал
+          <select id="cZone"></select>
+        </label>
+        <label>День
+          <select id="cDay"><option value="weekday">Будни</option><option value="weekend">Выходные</option></select>
+        </label>
+        <label>Часов: <output id="cHoursOut">3</output>
+          <input type="range" id="cHours" min="1" max="12" value="3">
+        </label>
+      </div>
+      <div class="calc__res" aria-live="polite">
+        <p class="calc__lab">Лучшая цена</p>
+        <p class="calc__sum" id="cSum">—</p>
+        <p class="calc__mix" id="cMix"></p>
+        <p class="calc__hint" id="cHint"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="gallery">
+  <div class="wrap">
+    <header class="sec__head"><p class="eyebrow">Атмосфера</p><h2>Загляни внутрь</h2></header>
+    <div class="gal">
+      <figure class="gal__a"><img src="img/desk.webp" alt="Игровое место с RGB-клавиатурой и мышью" width="800" height="600" loading="lazy"></figure>
+      <figure><img src="img/screen.webp" alt="Большой экран с трансляцией матча" width="800" height="533" loading="lazy"></figure>
+      <figure><img src="img/autosim.webp" alt="Автосимулятор с рулём" width="800" height="533" loading="lazy"></figure>
+    </div>
+    <div class="promo">
+      <h3>Автосим: гонки на приз</h3>
+      <p>Каждый месяц приз 5&nbsp;000&nbsp;₽ за лучшее время круга. Трасса меняется ежемесячно — актуальную уточняйте у администратора.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <header class="sec__head"><p class="eyebrow">Отзывы</p><h2>4,9 из 5 по версии гостей</h2></header>
+    <div class="reviews">
+      <blockquote><p>Отличный компьютерный клуб! Оборудование хорошее, на выбор есть много игр. Администраторы вежливые, пришел и смог сразу купить абонемент на час, система покупки игрового времени очень удобная, если нет своего аккаунта steam предоставят аккаунт для игры. Кресла удобные, хорошая VIP-комната и цены очень выгодные для такого железа.</p><cite>Роман Бернвальд · 28 июля</cite></blockquote>
+      <blockquote><p>Юрий гений этого места, только из-за него тут, такого сервиса даже в стрипухе и казино сочи не было, респект!</p><cite>Ярослав Баранов · 25 октября</cite></blockquote>
+      <blockquote><p>Бомба петарда</p><cite>Нина Погорелова · 15 июля</cite></blockquote>
+    </div>
+    <p class="center"><a class="link" href="https://yandex.ru/maps/org/34291840235" target="_blank" rel="noopener">Все отзывы на Яндекс Картах →</a></p>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="contacts">
+  <div class="wrap contacts">
+    <div>
+      <header class="sec__head sec__head--left"><p class="eyebrow">Контакты</p><h2>Как нас найти</h2></header>
+      <ul class="clist">
+        <li><span>Адрес</span><b>Омск, Кемеровская улица, 12А</b></li>
+        <li><span>Телефон</span><a href="tel:+79136283328"><b>+7 913 628-33-28</b></a></li>
+        <li><span>Мессенджеры</span>
+          <a class="pill" href="https://t.me/+79136283328" target="_blank" rel="noopener">Telegram</a>
+          <a class="pill" href="https://wa.me/79136283328" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="pill" href="https://vk.ru/cyberspideomsk" target="_blank" rel="noopener">VK</a>
+        </li>
+      </ul>
+      <a class="btn" href="https://yandex.ru/maps?ll=73.352027%2C54.999456&amp;mode=routes&amp;rtext=~54.999456%2C73.352027&amp;z=16" target="_blank" rel="noopener">Построить маршрут</a>
+    </div>
+    <figure class="find">
+      <img src="img/building.webp" alt="Здание на Кемеровской, 12А, вывеска CyberSpide" width="800" height="600" loading="lazy">
+      <figcaption>Ищите вывеску CyberSpide на здании, вход с зелёными стрелками.</figcaption>
+    </figure>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p><b>CyberSpide</b> · Компьютерный клуб, интернет-кафе, киберспорт</p>
+    <p class="foot__legal">ИП Ковальский Илья Сергеевич · ОГРНИП 318554300110833 · ИНН 550411295652</p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Быстрая связь">
+  <a href="tel:+79136283328">Позвонить</a>
+  <a href="https://t.me/+79136283328" target="_blank" rel="noopener">Telegram</a>
+</nav>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="spider" viewBox="0 0 40 40">
+      <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 0v12"/>
+        <path d="M16 20 7 10l-4 2M16 22 5 22l-3 6M17 25 8 33l1 5M23 20l9-10 4 2M24 22l11 0 3 6M23 25l9 8-1 5"/>
+      </g>
+      <ellipse cx="20" cy="20" rx="5" ry="6.5" fill="currentColor"/>
+      <circle cx="20" cy="13.5" r="3.2" fill="currentColor"/>
+    </symbol>
+    <symbol id="web" viewBox="0 0 400 400">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M400 0 0 400M400 0 120 400M400 0 0 280M400 0 240 400M400 0 0 160M400 0 360 400M400 0 0 40"/>
+        <path d="M400 70Q330 70 330 0M400 140Q260 140 260 0M400 210Q190 210 190 0M400 280Q120 280 120 0M400 350Q50 350 50 0"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+<script src="app.js" defer></script>
+</body>
+</html>
